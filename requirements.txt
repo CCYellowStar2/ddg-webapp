@@ -1,4 +1,4 @@
 Flask==3.0.0
 flask_cors
-duckduckgo_search==4.5.0
+duckduckgo_search==3.9.10
 newspaper3k
