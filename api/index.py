@@ -30,7 +30,7 @@ def search():
         max_results = request.args.get('max_results', 3, type=int)
         max_results = min(max_results, 10)
 
-        results = ddg(q, region=region, safesearch=safesearch,, max_results=max_results)
+        results = ddg(q, region=region, safesearch=safesearch, max_results=max_results)
         response = jsonify(results)
         return response
 
