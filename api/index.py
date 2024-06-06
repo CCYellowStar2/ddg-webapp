@@ -2,6 +2,7 @@ import re
 from flask import Flask, request, jsonify, Response
 from duckduckgo_search import DDGS
 from flask_cors import CORS
+from newspaper import Article
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://chat.openai.com"}})
@@ -83,7 +84,7 @@ def extract_title_and_text_from_url(url: str):
     if not url.startswith('http://') and not url.startswith('https://'):
         url = 'https://' + url
 
-    article = newspaper.article(url)
+    article = Article(url)
     article.download()
     article.parse()
 
