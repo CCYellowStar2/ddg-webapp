@@ -1,11 +1,11 @@
 import re
 from flask import Flask, request, jsonify, Response
-from duckduckgo_search import ddg
-
+from duckduckgo_search import DDGS
+from flask_cors import CORS
 
 
 app = Flask(__name__)
-
+CORS(app, resources={r"/*": {"origins": "https://chat.openai.com"}})
 
 @app.route('/')
 def home():
@@ -30,7 +30,7 @@ def search():
         max_results = request.args.get('max_results', 3, type=int)
         max_results = min(max_results, 10)
 
-        results = ddg(q, region=region, safesearch=safesearch, max_results=max_results)
+        results = DDGS().text(q, region=region, safesearch=safesearch, timelimit=time, max_results=max_results)
         response = jsonify(results)
         return response
 
