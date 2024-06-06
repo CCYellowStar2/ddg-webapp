@@ -30,9 +30,9 @@ def search():
         max_results = request.args.get('max_results', 3, type=int)
         max_results = min(max_results, 10)
 
-        results = DDGS().text(q, region=region)
+        results = DDGS().text(q, region=region,max_results=max_results)
         print(results)
-        response = results
+        response = jsonify(results)
         return response
 
     except Exception as e:
