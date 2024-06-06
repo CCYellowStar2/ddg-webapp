@@ -32,7 +32,7 @@ def search():
 
         results = DDGS().text(q, region=region)
         print(results)
-        response = jsonify(results)
+        response = results
         return response
 
     except Exception as e:
