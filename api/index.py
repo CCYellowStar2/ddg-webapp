@@ -2,7 +2,7 @@ import re
 from flask import Flask, request, jsonify, Response
 from duckduckgo_search import DDGS
 from flask_cors import CORS
-import newspaper
+
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://chat.openai.com"}})
 
