@@ -31,6 +31,7 @@ def search():
         max_results = min(max_results, 10)
 
         results = DDGS().text(q, region=region, safesearch=safesearch, timelimit=time, max_results=max_results)
+        print(results)
         response = jsonify(results)
         return response
 
