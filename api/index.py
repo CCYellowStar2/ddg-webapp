@@ -1,7 +1,7 @@
 import re
 from flask import Flask, request, jsonify, Response
 from duckduckgo_search import ddg
-from newspaper import Article
+
 
 
 app = Flask(__name__)
